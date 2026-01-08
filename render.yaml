@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: tfl-mcp
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python src/server.py
+    plan: free
+    autoDeploy: false
+    envVars:
+      - key: ENVIRONMENT
+        value: production
+      - key: TFL_API_KEY
+        sync: false
